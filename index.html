@@ -20,7 +20,9 @@
         
         <form class="todo-form">
           <div class="input-group mb-3">
-            <input type="text" class="form-control form-control-lg" placeholder="Add a task...">
+            <input type="text" class="form-control form-control-lg" placeholder="Add a task..." required>
+            <input type="date" class="form-control form-control-lg date-input" 
+                   min="${new Date().toISOString().split('T')[0]}">
             <select class="form-select form-select-lg priority-select">
               <option value="low">Low Priority</option>
               <option value="medium" selected>Medium Priority</option>
@@ -30,8 +32,22 @@
               <i class="bi bi-plus-lg"></i>
             </button>
           </div>
+          <div class="invalid-feedback text-center mb-2">
+            Cette tâche existe déjà !
+          </div>
         </form>
 
+        <div class="d-flex justify-content-end mb-3">
+          <div class="btn-group">
+            <button class="btn btn-outline-secondary sort-btn" data-sort="date">
+              <i class="bi bi-calendar"></i> Tri par date
+            </button>
+            <button class="btn btn-outline-secondary sort-btn" data-sort="priority">
+              <i class="bi bi-arrow-down-up"></i> Tri par priorité
+            </button>
+          </div>
+        </div>
+        
         <div class="row g-2 mb-4">
           <div class="col-6">
             <button class="btn btn-lg btn-outline-success w-100 filter-btn active" data-filter="all">All Tasks</button>

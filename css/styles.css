@@ -141,6 +141,45 @@ body {
   animation: slideIn 0.3s ease-out forwards;
 }
 
+.date-input {
+  max-width: 150px;
+}
+
+.date-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(108, 117, 125, 0.1);
+  color: #6c757d;
+  border-radius: 0.25rem;
+  margin-left: 0.5rem;
+}
+
+.expired {
+  color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.todo-item.has-subtasks {
+  border-bottom: 1px dashed #dee2e6;
+}
+
+.subtasks-container {
+  margin-left: 2rem;
+  padding-top: 0.5rem;
+  border-left: 2px solid #e9ecef;
+}
+
+/* Animation pour le message d'erreur */
+.invalid-feedback {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.invalid-feedback.show {
+  display: block;
+  opacity: 1;
+}
 /* Mobile Optimizations */
 @media (max-width: 768px) {
   .container-fluid {
@@ -212,6 +251,15 @@ body {
       padding: 0.25rem 0.5rem;
   }
 
+  .date-input {
+    max-width: 120px;
+  }
+
+  .date-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+  
   /* Footer adjustment */
   footer {
       padding: 1rem;
