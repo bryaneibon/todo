@@ -67,6 +67,8 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s;
+  position: absolute;
+  right: 1rem;
 }
 
 .delete-btn:hover {
