@@ -2,6 +2,7 @@ class TodoList {
     constructor() {
         this.todos = JSON.parse(localStorage.getItem('todos')) || [];
         this.currentFilter = 'all';
+        this.currentPriorityFilter = 'all';
         this.initializeElements();
         this.addEventListeners();
         this.render();
@@ -11,8 +12,10 @@ class TodoList {
     initializeElements() {
         this.$form = $('.todo-form');
         this.$input = $('.form-control');
+        this.$prioritySelect = $('.priority-select');
         this.$list = $('.todo-list');
         this.$filterButtons = $('.filter-btn');
+        this.$priorityFilters = $('.priority-filter');
     }
 
     initializeFooter() {
@@ -42,6 +45,11 @@ class TodoList {
             $item.fadeOut(150).fadeIn(150);
             this.toggleTodo($(e.currentTarget).data('id'));
         });
+
+        this.$priorityFilters.on('click', (e) => {
+            e.preventDefault();
+            this.setPriorityFilter($(e.currentTarget).data('priority'));
+        });
     }
 
     addTodo() {
@@ -50,10 +58,11 @@ class TodoList {
             const newTodo = {
                 id: Date.now(),
                 text,
-                completed: false
+                completed: false,
+                priority: this.$prioritySelect.val()
             };
             
-            this.todos.push(newTodo);
+            this.todos.unshift(newTodo);
             this.$input.val('');
             this.saveTodos();
             
@@ -62,6 +71,11 @@ class TodoList {
             this.$list.prepend($newTodoElement);
             $newTodoElement.slideDown(300);
         }
+    }
+
+    setPriorityFilter(priority) {
+        this.currentPriorityFilter = priority;
+        this.render();
     }
 
     toggleTodo(id) {
@@ -86,19 +100,32 @@ class TodoList {
     }
 
     getFilteredTodos() {
+        let filtered = this.todos;
+
         switch(this.currentFilter) {
             case 'active':
-                return this.todos.filter(todo => !todo.completed);
+                filtered = filtered.filter(todo => !todo.completed);
+                break;
             case 'completed':
-                return this.todos.filter(todo => todo.completed);
-            default:
-                return this.todos;
+                filtered = filtered.filter(todo => todo.completed);
+                break;
         }
+
+        if (this.currentPriorityFilter !== 'all') {
+            filtered = filtered.filter(todo => todo.priority === this.currentPriorityFilter);
+        }
+        return filtered;
     }
 
     createTodoElement(todo) {
+        const priorityText = {
+            high: 'High Priority',
+            medium: 'Medium Priority',
+            low: 'Low Priority'
+        };
+
         return $(`
-            <li class="list-group-item todo-item ${todo.completed ? 'completed bg-light' : ''}">
+            <li class="list-group-item todo-item priority-${todo.priority} ${todo.completed ? 'completed bg-light' : ''}">
                 <div class="d-flex align-items-center">
                     <div class="form-check">
                         <input type="checkbox" 
@@ -106,6 +133,7 @@ class TodoList {
                                ${todo.completed ? 'checked' : ''}
                                data-id="${todo.id}">
                         <span class="todo-text ms-2">${todo.text}</span>
+                        <span class="priority-badge ms-2">${priorityText[todo.priority]}</span>
                     </div>
                     <button class="btn btn-danger btn-sm ms-auto delete-btn" data-id="${todo.id}">
                         <i class="bi bi-trash"></i>

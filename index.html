@@ -21,6 +21,11 @@
         <form class="todo-form">
           <div class="input-group input-group-sm mb-3">
             <input type="text" class="form-control" placeholder="Add a task...">
+            <select class="form-select priority-select" style="max-width: 120px;">
+              <option value="low">Low Priority</option>
+              <option value="medium" selected>Medium Priority</option>
+              <option value="high">High Priority</option>
+            </select>
             <button type="submit" class="btn todo-button">
               <i class="bi bi-plus-lg"></i><span class="d-none d-md-inline ms-1">Add</span>
             </button>
@@ -31,6 +36,17 @@
           <button class="btn btn-sm btn-outline-success flex-grow-1 filter-btn active" data-filter="all">All Tasks</button>
           <button class="btn btn-sm btn-outline-success flex-grow-1 filter-btn" data-filter="active">Remaining</button>
           <button class="btn btn-sm btn-outline-success flex-grow-1 filter-btn" data-filter="completed">Done</button>
+          <div class="dropdown flex-grow-1">
+            <button class="btn btn-sm btn-outline-success dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+              Priority
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item priority-filter" data-priority="all" href="#">All Priorities</a></li>
+              <li><a class="dropdown-item priority-filter" data-priority="high" href="#">High Priority</a></li>
+              <li><a class="dropdown-item priority-filter" data-priority="medium" href="#">Medium Priority</a></li>
+              <li><a class="dropdown-item priority-filter" data-priority="low" href="#">Low Priority</a></li>
+            </ul>
+          </div>
         </div>
 
         <ul class="todo-list list-group"></ul>
