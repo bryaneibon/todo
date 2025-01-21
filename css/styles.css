@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
 }
 
+/* Composants de base */
 .todo-button {
   background: linear-gradient(135deg, #6a55e6 0%, #c655e6 100%);
   color: white;
@@ -23,6 +24,69 @@ body {
   transform: translateY(-1px);
 }
 
+/* Grid pour les contrôles */
+.todo-controls-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Style du wrapper de date */
+.date-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 0.375rem;
+  border: 1px solid #ced4da;
+}
+
+.date-wrapper i {
+  position: absolute;
+  left: 0.75rem;
+  color: #6c757d;
+  pointer-events: none;
+}
+
+.date-wrapper .date-input {
+  border: none;
+  padding-left: 2.5rem;
+  width: 100%;
+  background: transparent;
+  max-width: 140px;
+}
+
+.date-wrapper .date-input:focus {
+  box-shadow: none;
+  border-color: #6a55e6;
+}
+
+
+.task-input-wrapper {
+  position: relative;
+}
+
+.task-input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6a55e6;
+  font-size: 1.2rem;
+}
+
+.task-input {
+  padding-left: 2.8rem !important;
+  transition: all 0.3s ease;
+}
+
+.task-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(106, 85, 230, 0.25);
+  border-color: #6a55e6;
+}
+
+/* Liste des tâches */
 .todo-list {
   list-style: none;
 }
@@ -36,6 +100,7 @@ body {
   border-radius: 5px;
   border-left: 4px solid transparent;
   transition: transform 0.2s;
+  animation: slideIn 0.3s ease-out forwards;
 }
 
 .todo-item:hover {
@@ -48,6 +113,7 @@ body {
   background: #f0f0f7;
 }
 
+/* Éléments de tâche */
 .todo-checkbox {
   width: 20px;
   height: 20px;
@@ -77,18 +143,24 @@ body {
   transform: scale(1.05);
 }
 
+/* Boutons de filtre */
 .filter-btn {
   border: 2px solid #6a55e6;
   color: #6a55e6;
   transition: all 0.3s;
 }
 
-.filter-btn:hover, .filter-btn.active {
+.filter-btn:hover, 
+.filter-btn.active {
   background: #6a55e6;
   color: white;
 }
 
-/* Priority Styles */
+/* Styles de priorité */
+.priority-select {
+  min-width: 160px;
+}
+
 .todo-item.priority-high {
   border-left-color: #dc3545;
   background-color: rgba(220, 53, 69, 0.05);
@@ -126,26 +198,7 @@ body {
   color: #198754;
 }
 
-/* Animations */
-@keyframes slideIn {
-  from {
-      transform: translateX(-20px);
-      opacity: 0;
-  }
-  to {
-      transform: translateX(0);
-      opacity: 1;
-  }
-}
-
-.todo-item {
-  animation: slideIn 0.3s ease-out forwards;
-}
-
-.date-input {
-  max-width: 140px;
-}
-
+/* Badges et étiquettes */
 .date-badge {
   font-size: 0.75rem;
   padding: 0.25rem 0.5rem;
@@ -160,17 +213,7 @@ body {
   background-color: rgba(220, 53, 69, 0.1);
 }
 
-.todo-item.has-subtasks {
-  border-bottom: 1px dashed #dee2e6;
-}
-
-.subtasks-container {
-  margin-left: 2rem;
-  padding-top: 0.5rem;
-  border-left: 2px solid #e9ecef;
-}
-
-/* Animation pour le message d'erreur */
+/* Message d'erreur */
 .invalid-feedback {
   display: none;
   opacity: 0;
@@ -182,11 +225,19 @@ body {
   opacity: 1;
 }
 
-.priority-select {
-  min-width: 160px;
+/* Animations */
+@keyframes slideIn {
+  from {
+      transform: translateX(-20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
 }
 
-/* Mobile Optimizations */
+/* Responsive Design */
 @media (max-width: 768px) {
   .container-fluid {
       padding: 0.5rem;
@@ -201,41 +252,27 @@ body {
       padding: 1rem !important;
   }
 
-  /* Input group adjustments */
-  .input-group {
-      gap: 0.5rem;
-      flex-wrap: nowrap;
+  .form-control-lg,
+  .form-select-lg,
+  .date-wrapper .date-input,
+  .priority-select,
+  .todo-button,
+  .btn-lg {
+      height: 42px;
+      font-size: 0.9rem;
+      padding: 0.5rem;
   }
 
-  .form-control-lg, .form-select-lg {
-      font-size: 1rem;
-      padding: 0.5rem;
-      height: 42px;
+  .todo-controls-grid {
+      gap: 0.25rem;
   }
 
   .priority-select {
       min-width: 140px;
   }
 
-  /* Filter buttons adjustments */
-  .row.g-2 {
-      margin: 0 -0.25rem;
-  }
-
-  .col-6 {
-      padding: 0 0.25rem;
-  }
-
-  .btn-lg {
-      font-size: 0.9rem;
-      padding: 0.5rem;
-      height: 42px;
-  }
-
-  /* Todo items adjustments */
-  .todo-item {
-      padding: 0.75rem;
-      margin-bottom: 0.5rem;
+  .date-wrapper .date-input {
+      max-width: 120px;
   }
 
   .todo-text {
@@ -246,37 +283,21 @@ body {
       white-space: nowrap;
   }
 
-  .todo-button {
-    min-width: 50px;
+  .task-input-icon {
+    font-size: 1rem;
+    left: 0.8rem;
+}
+
+  .task-input {
+      padding-left: 2.4rem !important;
   }
 
-  .priority-badge {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.5rem;
-      white-space: nowrap;
-  }
-
-  .delete-btn {
-      padding: 0.25rem 0.5rem;
-  }
-
-  .date-input {
-    max-width: 120px;
-  }
-
-  .date-badge {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.4rem;
-  }
-  
-  /* Footer adjustment */
   footer {
       padding: 1rem;
       font-size: 0.8rem;
   }
 }
 
-/* Extra small devices */
 @media (max-width: 375px) {
   .card-body {
       padding: 0.75rem !important;
@@ -292,6 +313,21 @@ body {
   }
 
   .priority-badge {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.4rem;
+  }
+
+  .date-wrapper .date-input {
+      font-size: 0.8rem;
+      padding-left: 2.2rem;
+  }
+
+  .priority-select {
+      font-size: 0.8rem;
+      padding-right: 1.5rem;
+  }
+
+  .date-badge {
       font-size: 0.7rem;
       padding: 0.2rem 0.4rem;
   }
