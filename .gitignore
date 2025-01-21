@@ -1,0 +1,25 @@
+# Système
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Dépendances
+node_modules/
+package-lock.json
+
+# Fichiers de build
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environnement
+.env
+.env.local
