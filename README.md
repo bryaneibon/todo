@@ -1,14 +1,19 @@
 # 📝 TodoList Minimaliste
-Une application TodoList élégante et minimaliste construite avec HTML, CSS, et JavaScript pur. Optimisée pour la productivité avec une interface utilisateur intuitive.
+Une application TodoList élégante et minimaliste construite avec HTML, CSS, et JavaScript. Optimisée pour la productivité avec une interface utilisateur intuitive.
 
 ## ✨ Fonctionnalités
 
-- ➕ Ajout de tâches en temps réel
+- ➕ Ajout de tâches en temps réel avec priorité et date d'échéance
 - ✅ Marquage des tâches comme terminées
 - 🗑️ Suppression des tâches
-- 🔍 Filtrage des tâches (Toutes, À faire, Terminées)
+- 🎯 Gestion des priorités (Haute, Moyenne, Basse)
+- 📅 Dates d'échéance pour les tâches
+- 🔍 Filtrage des tâches :
+  - Par statut (Toutes, En cours, Terminées)
+  - Par priorité
+- 🔄 Validation des tâches dupliquées
 - 💾 Sauvegarde automatique dans le localStorage
-- 📱 Design responsive
+- 📱 Design responsive et adaptatif
 - 🎨 Interface utilisateur moderne et épurée
 
 ## 🚀 Démarrage Rapide
@@ -29,14 +34,20 @@ C'est tout ! Aucune dépendance ou installation nécessaire.
 - LocalStorage pour la persistance des données
 - Bootstrap 5.3.3 pour le design responsive
 - jQuery 3.7.1 pour la manipulation du DOM
+- Bootstrap Icons pour les icônes
 
 ## 🎯 Utilisation
 
 1. Entrez votre tâche dans le champ de saisie
-2. Cliquez sur "Ajouter" ou appuyez sur Entrée
-3. Pour marquer une tâche comme terminée, cochez la case à côté
-4. Pour supprimer une tâche, cliquez sur le bouton "Supprimer"
-5. Utilisez les filtres pour afficher les tâches selon leur état
+2. Sélectionnez une date d'échéance (optionnel)
+3. Choisissez une priorité (Haute, Moyenne, Basse)
+4. Cliquez sur "Ajouter" ou appuyez sur Entrée
+5. Pour marquer une tâche comme terminée, cochez la case à côté
+6. Pour supprimer une tâche, cliquez sur le bouton "Supprimer"
+7. Utilisez les filtres pour organiser l'affichage :
+   - Filtrage par statut (Toutes, En cours, Terminées)
+   - Filtrage par priorité
+   - Tri automatique des tâches
 
 ## 🎨 Structure du Projet
 
@@ -55,15 +66,25 @@ todolist/
 
 ## 🔧 Personnalisation
 
-Pour modifier les couleurs, ajustez les variables CSS dans la section style :
+Les couleurs du thème sont personnalisables via CSS :
 
 ```css
-.todo-button {
-    background: #4CAF50; /* Couleur principale */
+/* Couleurs des priorités */
+.priority-high {
+    border-left-color: #dc3545;
 }
 
-.delete-btn {
-    background: #ff4444; /* Couleur de suppression */
+.priority-medium {
+    border-left-color: #ffc107;
+}
+
+.priority-low {
+    border-left-color: #198754;
+}
+
+/* Boutons et actions */
+.todo-button {
+    background: linear-gradient(135deg, #6a55e6 0%, #c655e6 100%);
 }
 ```
 
@@ -81,12 +102,12 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 
 **Bryan DIFFO**
 - Email : [bryandiffo@gmail.com](mailto:bryandiffo@gmail.com)
-- GitHub : [@https://github.com/bryaneibon](https://github.com/bryaneibon/)
+- GitHub : [@bryaneibon](https://github.com/bryaneibon/)
 
 ## 🌟 Remerciements
 
 - Inspiration du design : [TodoMVC](http://todomvc.com/)
-- Icônes : [Font Awesome](https://fontawesome.com/)
+- Icônes : [Bootstrap Icons](https://icons.getbootstrap.com/)
 
 ---
 ⭐️ Si vous trouvez ce projet utile, n'hésitez pas à lui donner une étoile !
