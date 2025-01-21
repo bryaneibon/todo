@@ -1,121 +1,159 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-    background: #f5f5f5;
-    min-height: 100vh;
-    padding: 2rem;
+  background: linear-gradient(135deg, #f0f2ff 0%, #fff0ff 100%);
+  min-height: 100vh;
+  padding: 2rem;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(146, 123, 255, 0.1);
 }
 
 h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 2rem;
+  text-align: center;
+  color: #6a55e6;
+  margin-bottom: 2rem;
+  font-weight: bold;
 }
 
 .todo-form {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .todo-input {
-    flex: 1;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
+  flex: 1;
+  padding: 0.8rem;
+  border: 2px solid #e6e1ff;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: #6a55e6;
 }
 
 .todo-button {
-    padding: 0.8rem 1.5rem;
-    background: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #6a55e6 0%, #c655e6 100%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .todo-button:hover {
-    background: #45a049;
+  background: linear-gradient(135deg, #5644c9 0%, #b144c9 100%);
+  transform: translateY(-1px);
 }
 
 .todo-list {
-    list-style: none;
+  list-style: none;
 }
 
 .todo-item {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    background: #f9f9f9;
-    margin-bottom: 0.5rem;
-    border-radius: 5px;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: #f8f7ff;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  gap: 1rem;
+  transition: transform 0.2s;
+}
+
+.todo-item:hover {
+  transform: translateX(5px);
 }
 
 .todo-item.completed {
-    opacity: 0.7;
-    text-decoration: line-through;
+  opacity: 0.7;
+  text-decoration: line-through;
+  background: #f0f0f7;
 }
 
 .todo-checkbox {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #6a55e6;
 }
 
 .todo-text {
-    flex: 1;
+  flex: 1;
+  color: #4a4a4a;
 }
 
 .delete-btn {
-    padding: 0.5rem;
-    background: #ff4444;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-    position: absolute;
-    right: 1rem;
+  padding: 0.5rem;
+  background: linear-gradient(135deg, #ff55a4 0%, #ff557f 100%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: absolute;
+  right: 1rem;
 }
 
 .delete-btn:hover {
-    background: #cc0000;
+  background: linear-gradient(135deg, #e64491 0%, #e6446c 100%);
+  transform: scale(1.05);
 }
 
 .filters {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .filter-btn {
-    padding: 0.5rem 1rem;
-    border: none;
-    background: #eee;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
+  padding: 0.5rem 1rem;
+  border: 2px solid #6a55e6;
+  background: transparent;
+  color: #6a55e6;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-btn:hover {
+  background: rgba(106, 85, 230, 0.1);
 }
 
 .filter-btn.active {
-    background: #4CAF50;
-    color: white;
+  background: #6a55e6;
+  color: white;
+}
+
+/* Ajout des animations */
+@keyframes slideIn {
+  from {
+      transform: translateX(-20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+.todo-item {
+  animation: slideIn 0.3s ease-out forwards;
 }

@@ -5,6 +5,7 @@ class TodoList {
         this.initializeElements();
         this.addEventListeners();
         this.render();
+        this.initializeFooter();
     }
 
     initializeElements() {
@@ -14,6 +15,12 @@ class TodoList {
         this.$filterButtons = $('.filter-btn');
     }
 
+    initializeFooter() {
+        const currentYear = new Date().getFullYear();
+        $('#year').text(currentYear);
+    }
+
+    // Le reste du code reste le même
     addEventListeners() {
         this.$form.on('submit', (e) => {
             e.preventDefault();
@@ -24,7 +31,6 @@ class TodoList {
             this.setFilter($(e.currentTarget).data('filter'));
         });
 
-        // Ajout de l'animation de suppression
         this.$list.on('click', '.delete-btn', (e) => {
             const $item = $(e.currentTarget).closest('.todo-item');
             $item.fadeOut(300, () => {
@@ -32,7 +38,6 @@ class TodoList {
             });
         });
 
-        // Toggle avec animation
         this.$list.on('change', '.todo-checkbox', (e) => {
             const $item = $(e.currentTarget).closest('.todo-item');
             $item.fadeOut(150).fadeIn(150);
@@ -53,7 +58,6 @@ class TodoList {
             this.$input.val('');
             this.saveTodos();
             
-            // Ajouter avec animation
             const $newTodoElement = this.createTodoElement(newTodo);
             $newTodoElement.hide();
             this.$list.prepend($newTodoElement);
