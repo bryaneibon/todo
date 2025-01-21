@@ -13,39 +13,47 @@
 </head>
 
 <body class="bg-light">
-  <div class="container-fluid container-md py-3 py-md-5">
-    <div class="card shadow-lg mx-2 mx-md-auto" style="max-width: 540px;">
-      <div class="card-body p-3 p-md-4">
-        <h1 class="text-center mb-3 mb-md-4 h2">TodoApp</h1>
+  <div class="container-fluid container-md py-3">
+    <div class="card shadow-lg mx-auto" style="max-width: 540px;">
+      <div class="card-body">
+        <h1 class="text-center mb-4">TodoApp</h1>
         
         <form class="todo-form">
-          <div class="input-group input-group-sm mb-3">
-            <input type="text" class="form-control" placeholder="Add a task...">
-            <select class="form-select priority-select" style="max-width: 120px;">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control form-control-lg" placeholder="Add a task...">
+            <select class="form-select form-select-lg priority-select">
               <option value="low">Low Priority</option>
               <option value="medium" selected>Medium Priority</option>
               <option value="high">High Priority</option>
             </select>
             <button type="submit" class="btn todo-button">
-              <i class="bi bi-plus-lg"></i><span class="d-none d-md-inline ms-1">Add</span>
+              <i class="bi bi-plus-lg"></i>
             </button>
           </div>
         </form>
 
-        <div class="d-flex gap-2 mb-3 mb-md-4 flex-wrap">
-          <button class="btn btn-sm btn-outline-success flex-grow-1 filter-btn active" data-filter="all">All Tasks</button>
-          <button class="btn btn-sm btn-outline-success flex-grow-1 filter-btn" data-filter="active">Remaining</button>
-          <button class="btn btn-sm btn-outline-success flex-grow-1 filter-btn" data-filter="completed">Done</button>
-          <div class="dropdown flex-grow-1">
-            <button class="btn btn-sm btn-outline-success dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-              Priority
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item priority-filter" data-priority="all" href="#">All Priorities</a></li>
-              <li><a class="dropdown-item priority-filter" data-priority="high" href="#">High Priority</a></li>
-              <li><a class="dropdown-item priority-filter" data-priority="medium" href="#">Medium Priority</a></li>
-              <li><a class="dropdown-item priority-filter" data-priority="low" href="#">Low Priority</a></li>
-            </ul>
+        <div class="row g-2 mb-4">
+          <div class="col-6">
+            <button class="btn btn-lg btn-outline-success w-100 filter-btn active" data-filter="all">All Tasks</button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-lg btn-outline-success w-100 filter-btn" data-filter="active">Remaining</button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-lg btn-outline-success w-100 filter-btn" data-filter="completed">Done</button>
+          </div>
+          <div class="col-6">
+            <div class="dropdown w-100">
+              <button class="btn btn-lg btn-outline-success dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+                Priority
+              </button>
+              <ul class="dropdown-menu w-100">
+                <li><a class="dropdown-item priority-filter" data-priority="all" href="#">All Priorities</a></li>
+                <li><a class="dropdown-item priority-filter" data-priority="high" href="#">High Priority</a></li>
+                <li><a class="dropdown-item priority-filter" data-priority="medium" href="#">Medium Priority</a></li>
+                <li><a class="dropdown-item priority-filter" data-priority="low" href="#">Low Priority</a></li>
+              </ul>
+            </div>
           </div>
         </div>
 
