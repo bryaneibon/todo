@@ -20,7 +20,6 @@ class TodoList {
         $('#year').text(currentYear);
     }
 
-    // Le reste du code reste le même
     addEventListeners() {
         this.$form.on('submit', (e) => {
             e.preventDefault();

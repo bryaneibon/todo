@@ -13,24 +13,24 @@
 </head>
 
 <body class="bg-light">
-  <div class="container py-5">
-    <div class="card shadow-lg">
-      <div class="card-body">
-        <h1 class="text-center mb-4">Ma TodoList</h1>
+  <div class="container-fluid container-md py-3 py-md-5">
+    <div class="card shadow-lg mx-2 mx-md-auto" style="max-width: 540px;">
+      <div class="card-body p-3 p-md-4">
+        <h1 class="text-center mb-3 mb-md-4 h2">TodoApp</h1>
         
         <form class="todo-form">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control todo-input" placeholder="Ajouter une tâche...">
-            <button type="submit" class="btn btn-success todo-button">
-              <i class="bi bi-plus-lg"></i> Ajouter
+          <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" placeholder="Add a task...">
+            <button type="submit" class="btn todo-button">
+              <i class="bi bi-plus-lg"></i><span class="d-none d-md-inline ms-1">Add</span>
             </button>
           </div>
         </form>
 
-        <div class="btn-group w-100 mb-4" role="group">
-          <button class="btn btn-outline-success filter-btn active" data-filter="all">Toutes</button>
-          <button class="btn btn-outline-success filter-btn" data-filter="active">À faire</button>
-          <button class="btn btn-outline-success filter-btn" data-filter="completed">Terminées</button>
+        <div class="d-flex gap-2 mb-3 mb-md-4 flex-wrap">
+          <button class="btn btn-sm btn-outline-success flex-grow-1 filter-btn active" data-filter="all">All Tasks</button>
+          <button class="btn btn-sm btn-outline-success flex-grow-1 filter-btn" data-filter="active">Remaining</button>
+          <button class="btn btn-sm btn-outline-success flex-grow-1 filter-btn" data-filter="completed">Done</button>
         </div>
 
         <ul class="todo-list list-group"></ul>
@@ -39,8 +39,8 @@
   </div>
 
   <footer class="text-center mt-4">
-    <p class="text-muted">&copy; <span id="year"></span> TodoApp par Bryan DIFFO. Tous droits réservés.</p>
-</footer>
+    <p class="text-muted">&copy; <span id="year"></span> TodoApp by Bryan DIFFO. All Rights Reserved.</p>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
