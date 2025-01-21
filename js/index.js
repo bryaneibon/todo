@@ -10,7 +10,7 @@ class TodoList {
 
     initializeElements() {
         this.$form = $('.todo-form');
-        this.$input = $('.todo-input');
+        this.$input = $('.form-control');
         this.$list = $('.todo-list');
         this.$filterButtons = $('.filter-btn');
     }
